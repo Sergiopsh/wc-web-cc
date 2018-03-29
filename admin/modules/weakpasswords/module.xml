@@ -1,0 +1,24 @@
+<module>
+	<rawname>weakpasswords</rawname>
+	<name>Weak Password Detection</name>
+	<version>2.5.0.4</version>
+	<type>tool</type>
+	<category>System Administration</category>
+	<changelog>
+		*2.5.0.4* #3735, localizations
+		*2.5.0.3* #3663
+		*2.5.0.2* changes to warning msg, moved to Tools tab, System Administration
+		*2.5.0.1* Consolidated individual security notices to a single notice with all details in extended text
+		*2.5.0.0* Initial release
+	</changelog>
+	<depends>
+		<version>2.5.0</version>
+	</depends>
+	<description>This module detects weak SIP secrets and sets security notifictions accordingly
+	</description>
+	<menuitems>
+		<weakpasswords>Weak Password Detection</weakpasswords>
+	</menuitems>
+	<location>release/2.5/weakpasswords-2.5.0.3.tgz</location>
+	<md5sum>6d7a9f78dd144db009775cee6102e816</md5sum>
+</module>

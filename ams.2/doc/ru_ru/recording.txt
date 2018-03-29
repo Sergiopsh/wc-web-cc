@@ -1,0 +1,66 @@
+﻿Recording
+============
+
+Этот модуль позволяет осуществлять поиск записей по дате, номеру, CallerID, прослушивать записи, удалять,
+загружать на локальный компьютер, отправлять по e-mail. 
+Записи должны храниться в директории /var/spool/asterisk/monitor ($monitor_dir в файле config.php) в формате WAV.
+
+Ниже приводится 2 варианта конфигурации:
+
+1. С использованием стандартного приложения MixMonitor
+
+extensions.conf
+----------------
+
+;для входящих звонков
+exten => _X.,1,Gosub(call-monitor,${EXTEN},1)
+exten => _X.,2,.....
+
+;для исходящих звонков
+exten => _X.,1,Gosub(call-monitor,${EXTEN},outgoing)
+exten => _X.,2,.....
+
+[call-monitor] 
+
+exten => _X.,1,Set(CALLDIRECTION=i)
+exten => _X.,n,Goto(m1) 
+exten => _X.,n(outgoing),Set(CALLDIRECTION=o)
+exten => _X.,n(m1),Set(TZONE=YEKT)
+exten => _X.,n,Set(RECCALLERID=${CALLERID(number)})
+exten => _X.,n,GotoIf(${RECCALLERID}?m2)
+exten => _X.,n,Set(RECCALLERID=000)
+exten => _X.,n(m2),Set(RTIME=${STRFTIME(|${TZONE}|%F-%H:%M:%S)})
+exten => _X.,n,Set(RECDIR=${RTIME:0:10}/${RTIME:11:2})
+exten => _X.,n,Set(RECNAME=${RTIME}-${RECCALLERID}-${EXTEN}-${CALLDIRECTION}-${UNIQUEID}.WAV)
+exten => _X.,n,Set(TMPFILE=/tmp/monitor/${RECNAME})
+exten => _X.,n,System(/bin/mkdir /var/spool/asterisk/monitor/${RECDIR} -p -m 0757)
+exten => _X.,n,MixMonitor(${TMPFILE}|b|/bin/mv ${TMPFILE} /var/spool/asterisk/monitor/${RECDIR})
+exten => _X.,n,Return()
+
+
+2. С использованием приложения CMonitor из пакета ams-modules.
+Пакет нужно предварительно скомпилировать и установить.
+
+;для входящих звонков
+exten => _X.,1,CMonitor(i)
+exten => _X.,2,.....
+
+;для исходящих звонков
+exten => _X.,1,CMonitor(o)
+exten => _X.,2,.....
+
+
+Преимуществом CMonitor является простота, а также возможность использовать правила записи, позволяющие фильтровать записываемые звонки по префиксу и CallerID.
+Приложение CMonitor пишет только в формате wav49 и начинает писать только после установки соединения.
+
+В конфигурационном файле ams.conf нужно настроить параметры в секции 
+
+[cmonitor]
+
+use_rules=1 ; 0 - пишутся все звонки, 1- пишутся звонки, соответствующие правилам
+tmp_dir=/tmp/monitor ; директория куда пишется файл до момента окончаия звонка
+tables_in_memory=1; имеет смысл когда use_rules=1, 0-используются обычные таблицы, 1- таблица с правилами записи копируется в память, 
+;что позволяет ускорить время выборки ~ на 30%, в этом случае требуется перезагрузить конфигурацию после внесения изменений в правила
+
+ 
+

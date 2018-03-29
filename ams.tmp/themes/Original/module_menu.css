@@ -1,0 +1,38 @@
+.panelTabHeader {
+    height: 22px; 
+    border-style: solid none solid none;
+    border-top-color : #bdc7e7;
+    border-bottom-color: #182055;
+    border-width: 1px 0px 1px 0px;
+    font-family: verdana,sans;
+    font-size: 11px;
+    vertical-align: middle;
+    margin-bottom: 0px;
+    cursor: hand;
+}
+.panelTabContent {
+    font-family: verdana,sans;
+    font-size: 11px;
+    margin: 0px;
+    background-color: white;
+}
+.panelTabContentTbl {
+    font-family: verdana,sans;
+    margin-top: 5px;
+    background-color: white;
+/*    padding: 1px;*/
+}
+.menulink {
+    font-size: 10px; 
+    font-family: verdana,sans;
+    color: #6e6e6e;
+}
+a.menulink:link, a.menulink:visited {
+    color: #6e6e6e;
+    text-decoration: none;
+}
+a.menulink:hover {
+    color: #3c3c3c;
+    text-decoration: none;
+
+}

@@ -1,0 +1,34 @@
+<?php
+$strSystem='Система';
+$strSystemInfo='Информация о системе';
+$strExecute='Выполнить';
+$strShow='Показать';
+$strAsteriskCLI='Астериск CLI';
+$strShell='Системная команда';
+$strSystemTools='Система';
+$strAstSystem='Астериск CLI';
+$strConfigFiles='Файлы конфигурации';
+$strLogFiles='Лог-файлы';
+$strRefreshInfo='Обновить';
+$strUptime='Uptime';
+$strOS='Операционная система';
+$strCPUInfo='Процессор (ы)';
+$strMemoryUsage='Память';
+$strDiskUsage='Диски';
+$strAsteriskServer='Астериск CLI';
+$strAsteriskCLI='Астериск CLI';
+$strAsteriskDB='Астериск БД';
+$strFileManager='Менеджер файлов';
+$strAsteriskInfo='Астериск сервер:';
+$strHide='Свернуть';
+$strClear='Очистить';
+$strBack='Назад';
+$strForward='Вперед';
+$strLogDate='Дата';
+$strNoLogs='Нет лог-записей на дату ';
+$strCantOpenFile='Не могу открыть файл';
+$strCantOpenSocket='Ошибка соединения с Астериском...';
+$strNoAnswer='Нет ответа от сервера';
+$strConnectionTimeout='Таймаут сединения...';
+$strAuthenticationFailed='Ошибка авторизации...';
+?>

@@ -1,0 +1,30 @@
+.currentTab {
+	font-size: 11px;
+	font-family: sans-serif,sans;
+	color: #6e6e6e;
+	font-weight: bold;
+	padding-top: 1px;
+}
+a.currentTab:link, a.currentTab:visited {
+	color: #222222;
+	text-decoration: none;
+}
+a.currentTab:hover {
+	color: #444444;
+	text-decoration: none;
+}
+.otherTab {
+	font-size: 11px;
+	font-family: sans-serif,sans;
+	color: #6e6e6e;
+	font-weight: bold;
+}
+a.otherTab:link, a.otherTab:visited {
+	color: #6e6e6e;
+	text-decoration: none;
+}
+a.otherTab:hover {
+	color: #3C3C3C;
+	text-decoration: none;
+}
+

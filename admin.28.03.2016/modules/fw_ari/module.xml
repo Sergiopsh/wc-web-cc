@@ -1,0 +1,26 @@
+<module>
+	<rawname>fw_ari</rawname>
+	<name>FreePBX ARI Framework</name>
+	<version>2.5.2.3</version>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<changelog>
+		*2.5.2.3* Security Vulnerability: #3660
+		*2.5.2.2* #3446, #3540
+		*2.5.2.1* fixes some unreported bugs: r7140, r7235, localization updates
+		*2.5.2.rc1* #3042 remove player popup, embed in page and add call screening settings to phone features
+		*2.5.1.1* #3202, #3203
+		*2.5.1* #3184 SECURITY VULNERABILITY fix
+		*2.5.0.3* #3165, #3077, #2609 and additional fixes related to #3161
+		*2.5.0.2* r6505, #3161 SQL Injection vulnerability that could allow and authenticated user to access all CDRs and recordings
+		*2.5.0.1* remove inclusion of libfreepbx.install.php in install script resulting in warnings
+		*2.5.0* #3104 and First release of fw_ari
+	</changelog>
+	<description>
+		This module provides a facility to install bug fixes to the ARI code that is not otherwise housed in a module, it used to be part of framework but has been removed to isolate ARI from Framework updates.
+	</description>
+	<type>setup</type>
+	<category>Basic</category>
+	<location>release/2.5/fw_ari-2.5.2.2.tgz</location>
+	<md5sum>de2341782bac308dadfc7cb138aab32e</md5sum>
+</module>

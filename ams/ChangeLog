@@ -1,0 +1,14 @@
+2009-03-05  Asterisk Management System 1.0.2.2 version
+======================================================
+	- bug fixed in file lib/downloadfiles.php (72)
+
+2009-03-02  Asterisk Management System 1.0.2.1 version
+======================================================
+	- bug fixed in module Asterisk Channels & Events Monitor 
+
+2009-02-28  Asterisk Management System 1.0.2 version
+======================================================
+	- new module Asterisk Channels & Events Monitor added
+	- user's management bug fixed 
+	- some other minor bugs fixed
+	

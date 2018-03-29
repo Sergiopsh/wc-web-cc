@@ -1,0 +1,95 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-05 12:13+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:33
+#, php-format
+msgid "Misc Destination: %s"
+msgstr ""
+
+#: page.miscdests.php:69 page.miscdests.php:114 page.miscdests.php:122
+msgid "Add Misc Destination"
+msgstr ""
+
+#: page.miscdests.php:83
+msgid "Misc Destination"
+msgstr ""
+
+#: page.miscdests.php:83
+msgid "deleted"
+msgstr ""
+
+#: page.miscdests.php:94
+msgid ""
+"Misc Destinations are for adding destinations that can be used by other "
+"FreePBX modules, generally used to route incoming calls. If you want to "
+"create feature codes that can be dialed by internal users and go to various "
+"destinations, please see the <strong>Misc Applications</strong> module."
+msgstr ""
+
+#: page.miscdests.php:99
+msgid "Misc Destination:"
+msgstr ""
+
+#: page.miscdests.php:103
+#, php-format
+msgid "Delete Misc Destination %s"
+msgstr ""
+
+#: page.miscdests.php:122
+msgid "Edit Misc Destination"
+msgstr ""
+
+#: page.miscdests.php:127
+msgid "Description:"
+msgstr ""
+
+#: page.miscdests.php:127
+msgid "Give this Misc Destination a brief name to help you identify it."
+msgstr ""
+
+#: page.miscdests.php:131
+msgid "Dial:"
+msgstr ""
+
+#: page.miscdests.php:131
+msgid ""
+"Enter the number this destination will simulate dialing, exactly as you "
+"would dial it from an internal phone. When you route a call to this "
+"destination, it will be as if the caller dialed this number from an internal "
+"phone."
+msgstr ""
+
+#: page.miscdests.php:136
+msgid "featurecode shortcuts"
+msgstr ""
+
+#: page.miscdests.php:151
+msgid "Submit Changes"
+msgstr ""
+
+#: page.miscdests.php:168
+msgid "Please enter a valid Description"
+msgstr ""
+
+#: page.miscdests.php:169
+msgid "Please enter a valid Dial string"
+msgstr ""
+
+#: module.xml
+msgid "Misc Destinations"
+msgstr ""

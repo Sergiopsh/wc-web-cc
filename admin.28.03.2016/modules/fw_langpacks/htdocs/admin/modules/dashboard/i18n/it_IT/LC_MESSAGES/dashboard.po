@@ -1,0 +1,298 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 2.5\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-10-08 10:32+0200\n"
+"PO-Revision-Date: 2008-11-10 11:55+0100\n"
+"Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Italian\n"
+"X-Poedit-Country: ITALY\n"
+
+#: page.index.php:113
+msgid "OK"
+msgstr "OK"
+
+#: page.index.php:117
+msgid "Warn"
+msgstr "Attenz"
+
+#: page.index.php:121
+msgid "ERROR"
+msgstr "ERRORE"
+
+#: page.index.php:154
+#: page.index.php:180
+msgid "minutes"
+msgstr "minuti"
+
+#: page.index.php:171
+msgid "week"
+msgstr "settimana"
+
+#: page.index.php:171
+msgid "weeks"
+msgstr "settimane"
+
+#: page.index.php:174
+msgid "days"
+msgstr "giorni"
+
+#: page.index.php:177
+msgid "hour"
+msgstr "ora"
+
+#: page.index.php:177
+msgid "hours"
+msgstr "ore"
+
+#: page.index.php:180
+msgid "minute"
+msgstr "minuti"
+
+#: page.index.php:190
+msgid "System Statistics"
+msgstr "Statistiche di Sistema"
+
+#: page.index.php:191
+msgid "Processor"
+msgstr "Processore"
+
+#: page.index.php:193
+msgid "Load Average"
+msgstr "Carico Medio"
+
+#: page.index.php:194
+msgid "CPU"
+msgstr "CPU"
+
+#: page.index.php:196
+msgid "Memory"
+msgstr "Memoria"
+
+#: page.index.php:199
+msgid "App Memory"
+msgstr "Memoria App"
+
+#: page.index.php:200
+msgid "Swap"
+msgstr "Swap"
+
+#: page.index.php:202
+msgid "Disks"
+msgstr "Dischi"
+
+#: page.index.php:207
+msgid "Networks"
+msgstr "Reti"
+
+#: page.index.php:218
+msgid "receive"
+msgstr "riceve"
+
+#: page.index.php:219
+msgid "transmit"
+msgstr "trasmette"
+
+#: page.index.php:252
+msgid "FreePBX Statistics"
+msgstr "Statistiche FreePBX"
+
+#: page.index.php:253
+msgid "Total active calls"
+msgstr "Totale chiamate attive"
+
+#: page.index.php:254
+msgid "Internal calls"
+msgstr "Chiamate interne"
+
+#: page.index.php:255
+msgid "External calls"
+msgstr "Chiamate esterne"
+
+#: page.index.php:256
+msgid "Total active channels"
+msgstr "Totale canali attivi"
+
+#: page.index.php:258
+msgid "FreePBX Connections"
+msgstr "Connessioni FreePBX"
+
+#: page.index.php:268
+msgid "IP Phones Online"
+msgstr "Telefoni IP Online"
+
+#: page.index.php:271
+msgid "IP Trunks Online"
+msgstr "Fasci IP Online"
+
+#: page.index.php:274
+msgid "IP Trunk Registrations"
+msgstr "Registrazioni Fasci IP"
+
+#: page.index.php:283
+msgid "Uptime"
+msgstr "Tempo di esercizio"
+
+#: page.index.php:292
+msgid "System Uptime"
+msgstr "Sistema"
+
+#: page.index.php:300
+msgid "Asterisk Uptime"
+msgstr "Asterisk"
+
+#: page.index.php:301
+msgid "Last Reload"
+msgstr "Ultimo ricaricamento"
+
+#: page.index.php:313
+msgid "Server Status"
+msgstr "Stato Server"
+
+#: page.index.php:316
+#: page.index.php:318
+msgid "Asterisk"
+msgstr "Asterisk"
+
+#: page.index.php:316
+msgid "Asterisk is running: %s"
+msgstr "Asterisk è in esecuzione: %s"
+
+#: page.index.php:318
+msgid "Asterisk is not running, this is a critical service!"
+msgstr "Asterisk non è in esecuzione, questo è un servizio critico!"
+
+#: page.index.php:324
+#: page.index.php:326
+msgid "Manager Proxy"
+msgstr "Proxy Manager"
+
+#: page.index.php:324
+msgid "Asterisk Manager Proxy is running"
+msgstr "Asterisk Manager Proxy in esecuzione"
+
+#: page.index.php:326
+msgid "Asterisk Manager Proxy is not running, FreePBX will fall back to using Asterisk directly, which may result in poor performance"
+msgstr "Asterisk Manager Proxy non è in esecuzione, FreePBX si connetterà utilizzando direttamente Asterisk, e le prestazioni saranno degradate"
+
+#: page.index.php:333
+#: page.index.php:337
+#: page.index.php:339
+msgid "Op Panel"
+msgstr "Pannello Operatore"
+
+#: page.index.php:333
+msgid "FOP Operator Panel Server is running"
+msgstr "Pannello Operatore FOP in esecuzione"
+
+#: page.index.php:337
+msgid "FOP Operator Panel Server is not running, you will not be able to use the operator panel, but the system will run fine without it."
+msgstr "Il Pannello Operatore FOP non è in esecuzione, non sarai in grado di utilizzare il pannello operatore, ma il sistema funzionerà ugualmente in maniera regolare"
+
+#: page.index.php:339
+msgid "FOP Operator Panel is disabled in amportal.conf"
+msgstr "Pannello Operatore FOP disabilitato in amportal.conf"
+
+#: page.index.php:353
+msgid "MySQL"
+msgstr "MySQL"
+
+#: page.index.php:353
+msgid "MySQL Server is running"
+msgstr "Server MySQL in esecuzione"
+
+#: page.index.php:357
+msgid "Web Server"
+msgstr "Server Web"
+
+#: page.index.php:357
+msgid "Web Server is running"
+msgstr "Server Web in esecuzione"
+
+#: page.index.php:362
+#: page.index.php:364
+msgid "SSH Server"
+msgstr "Server SSH"
+
+#: page.index.php:362
+msgid "SSH Server is running"
+msgstr "Server SSH in esecuzione"
+
+#: page.index.php:364
+msgid "SSH Server is not running, you will not be able to connect to the system console remotely"
+msgstr "Il Server SSH non è in esecuzione, non sarai in grado di connetterti in remoto alla console di sistema"
+
+#: page.index.php:384
+msgid "Critical Error"
+msgstr "Errore Critico"
+
+#: page.index.php:385
+msgid "Security Update"
+msgstr "Aggiornamento di Sicurezza"
+
+#: page.index.php:386
+msgid "Update"
+msgstr "Aggiorna"
+
+#: page.index.php:387
+msgid "Error"
+msgstr "Errore"
+
+#: page.index.php:388
+msgid "Warning"
+msgstr "Attenz"
+
+#: page.index.php:389
+msgid "Notice"
+msgstr "Notifica"
+
+#: page.index.php:398
+msgid "FreePBX Notices"
+msgstr "Notifiche FreePBX"
+
+#: page.index.php:418
+#: page.index.php:420
+msgid "Delete this"
+msgstr "Elimina"
+
+#: page.index.php:423
+#: page.index.php:425
+msgid "Ignore this"
+msgstr "Ignora"
+
+#: page.index.php:441
+msgid "No notifications"
+msgstr "Nessuna notifica"
+
+#: page.index.php:443
+msgid "No new notifications"
+msgstr "Nessuna nuova notifica"
+
+#: page.index.php:451
+msgid "show new"
+msgstr "visualizza nuove"
+
+#: page.index.php:453
+msgid "show all"
+msgstr "visualizza tutte"
+
+#: page.index.php:596
+msgid "loading..."
+msgstr "caricamento..."
+
+#: page.index.php:612
+msgid "FreePBX System Status"
+msgstr "Stato Sistema FreePBX"
+
+msgid "System Dashboard"
+msgstr "Cruscotto di Sistema"
+

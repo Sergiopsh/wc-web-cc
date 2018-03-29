@@ -1,0 +1,32 @@
+<?php
+$strSystem='System';
+$strSystemInfo='System Info';
+$strExecute='Execute';
+$strShow='Show';
+$strAsteriskCLI='Asterisk CLI';
+$strShell='System command';
+$strSystemTools='System';
+$strConfigFiles='Config Files';
+$strLogFiles='Log-files';
+$strRefreshInfo='Refresh';
+$strUptime='Uptime';
+$strOS='Operation System';
+$strCPUInfo='Processor (s)';
+$strMemoryUsage='Memory';
+$strDiskUsage='Disks';
+$strAsteriskDB='Asterisk DB';
+$strFileManager='File Manager';
+$strAsteriskInfo='Asterisk Server Info';
+$strHide='Hide';
+$strClear='Clear';
+$strBack='Back';
+$strForward='Forward';
+$strLogDate='Date';
+$strNoLogs='No log-messages on date ';
+$strCantOpenFile='Can\'t open file';
+$strCantOpenSocket='Error connecting to Asterisk...';
+$strNoAnswer='No server response';
+$strResponseError='Response Error';
+$strAuthenticationFailed='Authentication failed';
+$strConnectionTimeout='Connection timeout...';
+?>

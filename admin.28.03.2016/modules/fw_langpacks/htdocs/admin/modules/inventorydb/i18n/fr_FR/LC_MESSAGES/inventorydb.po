@@ -1,0 +1,205 @@
+# This file is part of FreePBX.
+#
+#    FreePBX is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    FreePBX is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with FreePBX.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-16 14:07+0200\n"
+"PO-Revision-Date: 2009-04-20 11:18+0100\n"
+"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
+"Language-Team: Français <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: page.inventorydb.php:88
+msgid "Add"
+msgstr "Ajouter"
+
+#: page.inventorydb.php:90
+msgid "inventory"
+msgstr "inventaire"
+
+#: page.inventorydb.php:98
+msgid "deleted"
+msgstr "supprimé"
+
+#: page.inventorydb.php:103
+msgid "Add a user"
+msgstr "Ajouter un utilisateur"
+
+#: page.inventorydb.php:136
+msgid "Delete inventory"
+msgstr "Supprimer inventaire"
+
+#: page.inventorydb.php:139 page.inventorydb.php:155
+msgid "Add inventory"
+msgstr "Ajouter inventaire"
+
+#: page.inventorydb.php:155
+msgid "Edit inventory"
+msgstr "Editer inventaire"
+
+#: page.inventorydb.php:159
+msgid "Employee #"
+msgstr "# d'Employé"
+
+#: page.inventorydb.php:160
+msgid "Employee Number"
+msgstr "Numéro d'Employé"
+
+#: page.inventorydb.php:171
+msgid "Employee Name"
+msgstr "Nom de l'Employé"
+
+#: page.inventorydb.php:172
+msgid "The Name for the Employee"
+msgstr "Le nom pour l'Employé"
+
+#: page.inventorydb.php:182
+msgid "Building Located"
+msgstr "Situé dans le Bâtiment"
+
+#: page.inventorydb.php:183
+msgid "Building where the phone is located"
+msgstr "Bâtiment où se situe le téléphone"
+
+#: page.inventorydb.php:192
+msgid "Floor #"
+msgstr "Etage #"
+
+#: page.inventorydb.php:193
+msgid "Floor # phone is on"
+msgstr "# Etage où se trouve le téléphone"
+
+#: page.inventorydb.php:202
+msgid "Room #"
+msgstr "# Salle"
+
+#: page.inventorydb.php:203
+msgid "Room phone is in"
+msgstr "Salle dans laquelle se trouve le téléphone"
+
+#: page.inventorydb.php:212
+msgid "Floor Section #"
+msgstr "# de Section de l'Etage"
+
+#: page.inventorydb.php:213
+msgid "Floor Section # the phone is in"
+msgstr "# de Section de l'Etage où se trouve le téléphone"
+
+#: page.inventorydb.php:222
+msgid "Cubicle #"
+msgstr "# Compartiment"
+
+#: page.inventorydb.php:223
+msgid "Cubicle phone is in"
+msgstr "Compartiment dans lequel se trouve le téléphone"
+
+#: page.inventorydb.php:232
+msgid "Desk #"
+msgstr "# Bureau"
+
+#: page.inventorydb.php:233
+msgid "Desk Number phone is on"
+msgstr "Numéro de Bureau sur lequel se trouve le téléphone"
+
+#: page.inventorydb.php:242
+msgid "Extension #"
+msgstr "# Extension"
+
+#: page.inventorydb.php:243
+msgid "Exten Assigned to the phone"
+msgstr "Extension assignée au téléphone"
+
+#: page.inventorydb.php:252
+msgid "Phone UserName"
+msgstr "Nom d'utilisateur du téléphone"
+
+#: page.inventorydb.php:253
+msgid "Phone Admin Username"
+msgstr "Nom d'utilisateur de l'Admin du téléphone"
+
+#: page.inventorydb.php:262
+msgid "Phone Password"
+msgstr "Mot de Passe du Téléphone"
+
+#: page.inventorydb.php:263
+msgid " Phone Admin Password"
+msgstr "Mot de Passe d'Admin du Téléphone"
+
+#: page.inventorydb.php:272
+msgid "MAC Address"
+msgstr "Adresse MAC"
+
+#: page.inventorydb.php:273
+msgid "MAC Address of the phone"
+msgstr "Adresse MAC du Téléphone"
+
+#: page.inventorydb.php:282
+msgid "Serial #"
+msgstr "# de Série"
+
+#: page.inventorydb.php:283
+msgid "Serial Number of the phone"
+msgstr "Numéro de Série du Téléphone"
+
+#: page.inventorydb.php:292
+msgid "Phone/Device"
+msgstr "Téléphone/Périphérique"
+
+#: page.inventorydb.php:293
+msgid "Device, example... Linksys PAP-2, Sipura"
+msgstr "Périphérique, exemple... Linksys PAP-2, Sipura"
+
+#: page.inventorydb.php:302
+msgid "Distributed Date"
+msgstr "Date Distribuée"
+
+#: page.inventorydb.php:303
+msgid "Distribution Date"
+msgstr "Date de Distribution"
+
+#: page.inventorydb.php:312
+msgid "IP Address"
+msgstr "Adresse IP"
+
+#: page.inventorydb.php:313
+msgid "IP Address Assigned If not DHCP"
+msgstr "Adresse IP Assignée si pas de DHCP"
+
+#: page.inventorydb.php:322 page.inventorydb.php:323
+msgid "PBX Box Name"
+msgstr "Nom du Boîtier PBX"
+
+#: page.inventorydb.php:332
+msgid "Extra Info"
+msgstr "Info Supplémenataire"
+
+#: page.inventorydb.php:333
+msgid "Extra Information"
+msgstr "Information Supplémentaire"
+
+#: page.inventorydb.php:343
+msgid "Submit Changes"
+msgstr "Appliquer les Modifications"
+
+#: module.xml
+msgid "Inventory"
+msgstr "Inventaire"

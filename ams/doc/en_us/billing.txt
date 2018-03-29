@@ -1,0 +1,75 @@
+Billing
+===========
+
+For correct work of accounting part it is necessary to compile and establish the module ams_cdr_mysql.so from the package ams-modules. 
+After installation it is necessary in a file ams.conf in section [global] to establish parameters of connection with mysql database  (hostname, dbname, user, password, port, sock). 
+The parameters specified in ams.conf and parameters of connection in a file config.php should specify one database. 
+They identical if the Asterisk, the database and a web-server work on one computer. 
+
+To establish parameters in section
+
+[billing]
+
+billing_enable=1
+tables_in_memory=1 ; 0- usual tables are used, 1 - tables, which necessary billing, are copied to memory, 
+;that allows to accelerate select time about ~30 %. It is necessary to remember, that in this case it is required 
+;to reload Asterisk configuration after modification in tariffs or tariff plans that these changes have come into force
+
+
+Billing works as follows. 
+At creation of Tariff plans (the module Tariff Plans) is set unique identifier AccountCode. 
+The call having during the moment of end parameter accountcode, conterminous with the identifier of the Tariff plan will be considered, corresponding the given Tariff plan. 
+AccountCode the tariff plan can be completely equals accountcode a call, or to be a substring. 
+For example, if tariff plan Test Plan with AccountCode = test is created.
+
+
+extensions.conf
+----------------
+
+exten => 100,1,Set(CDR(accountcode)=test) ;This call will correspond to tariff plan Test Plan
+
+exten => 200,1,Set(CDR(accountcode)=test-123) ; and this too
+
+Tariff plans can be in different currencies. Currencies it is possible to add, edit rates in the module of Currency.
+
+At creation of tariff plans it is possible to set rules of translation of prefixes. 
+These rules are necessary, when the user dials the number in one format, and in the tariff plan other format of record is used.
+For example, in the tariff plan the tariff 7495 - Russia Moscow is set, and the user types in a habitual format 8495....
+Then in the tariff plan it is necessary to set a rule of translation - the Original Prefix - 8, Replacing prefix - 7.
+If a field replacing prefix to leave empty, the Original prefix will be cut simply off. 
+Rules of translation do not influence in any way passage of a call and do not change the dialed digits, they are necessary only for correct search of a direction in the tariff plan.
+
+The parameter Billing Step in the tariff plan influences algorithm of calculation of cost of a call. 
+The first field - the seconds that are not calculated, 
+the second - minimal billing duration, the third - billing step after excess minimal billing duration. 
+For example, per second tariffing since the first second - 0/1/1. 
+Billing Step 0/30/6 means, that the call duration is less 30 сек. will be equal to 30 сек., and further duration will be approximated with accuracy 6 сек. aside greater value.
+
+
+Rates
+--------------
+
+
+In the module Rates it is possible to add, edit, delete tariffs for the chosen tariff plan. 
+At addition and editing it is possible to use conveniently the Directory codes, whence it is possible to insert directions into the tariff plan directly. 
+At record cdr a call its accessory to the tariff plan is defined and a corresponding direction in the given tariff plan. 
+The direction With the maximal length of concurrence of a prefix is serached. 
+For example, if in the tariff plan there are records Russia proper - 7 and Russia Moscow - 7495, a call 7495.... 
+It will be certain as Russia Moscow. 
+
+Also each tariff has parameters - the minimal length (quantity of digits) and the maximal length. I.e. calls with identical prefixes, but with different length can be certain as different directions.
+For example, there are tariffs test1 with a prefix 123 and length 4-4, and the tariff test2 with a prefix 123 and length 5-10. 
+Then the call with dialed digits 1235 will be certain as test1, a call with dialed digits 12356 - as test2. 
+
+If it was not possible to define an accessory of a call to any tariff plan, or in the tariff plan it is not found the corresponding tariff, in a field the Direction will be written Unknown and cost - 0.00. 
+
+Reports
+---------------
+
+
+The module Reports allows to receive various reports with a filtration by various parameters. 
+If the parameter Base currency is set, total cost will be led to this currency at rates specified in the module of Currency. 
+If this parameter is not set, the result will be in several currencies (if calls passed under tariff plans with different currencies). 
+
+
+

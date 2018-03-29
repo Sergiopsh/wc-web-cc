@@ -1,0 +1,29 @@
+<module>
+	<rawname>asterisk-cli</rawname>
+	<name>Asterisk CLI</name>
+	<version>2.5.0.3</version>
+	<type>tool</type>
+	<category>System Administration</category>
+	<description>Provides an interface allowing you to run a commans as if it was typed into Asterisk CLI</description>
+	<menuitems>
+		<cli>Asterisk CLI</cli>
+	</menuitems>
+	<depends>
+		<engine>asterisk</engine>
+	</depends>
+	<location>release/2.5/asterisk-cli-2.5.0.2.tgz</location>
+	<md5sum>bb5da9daa777abdc778fba9e3746c7e1</md5sum>
+	<changelog>
+		*2.5.0.3* localization additions
+		*2.5.0.2* description added to xml
+		*2.5.0.1* r6547 Swedish Translations
+		*2.5.0* #2917 execute CLI command direct through manager to remove vulnerabilities
+		*2.4.0* 2.4 branch (added IT translations also)
+		*1.1.2.1* bump for rc1
+		*1.1.2* fix syntax error, extra =
+		*1.1.1* #2070 fix proper use of script tags
+		*1.1* #2006 Fixed display on systems with colored asterisk console
+		*1.0* Fixed security issue, first release in 2.2
+		*0.001* Original Release
+	</changelog>
+</module>

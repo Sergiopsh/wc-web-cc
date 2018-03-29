@@ -1,0 +1,5 @@
+ [global]
+  hostname=localhost
+  dbname=asterisk
+  password=asterisk
+  user=asteriskuser

@@ -1,0 +1,3 @@
+Jul 22 11:21:02 symfony [err] {sfConfigurationException} Configuration "config/databases.yml" does not exist or is unreadable
+Jul 22 11:21:02 symfony [err] {sfConfigurationException} Configuration "config/databases.yml" does not exist or is unreadable
+Jul 22 11:21:02 symfony [err] {sfConfigurationException} Configuration "config/databases.yml" does not exist or is unreadable

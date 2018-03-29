@@ -1,0 +1,66 @@
+﻿Recording
+============
+
+1. С использованием стандартного приложения MixMonitor
+
+This module allows to search records by date, number, CallerID, to listen to records, to delete, load on a local computer, to send on e-mail. Records should be stored in a directory/var/spool/asterisk/monitor ($monitor_dir in a file config.php) in format WAV. 
+
+Below 2 variants of a configuration are resulted: 
+
+1. With use of standard application MixMonitor 
+
+
+extensions.conf
+----------------
+
+;for incoming calls
+exten => _X.,1,Gosub(call-monitor,${EXTEN},1)
+exten => _X.,2,.....
+
+;for outgoing calls
+exten => _X.,1,Gosub(call-monitor,${EXTEN},outgoing)
+exten => _X.,2,.....
+
+[call-monitor] 
+
+exten => _X.,1,Set(CALLDIRECTION=i)
+exten => _X.,n,Goto(m1) 
+exten => _X.,n(outgoing),Set(CALLDIRECTION=o)
+exten => _X.,n(m1),Set(TZONE=YEKT)
+exten => _X.,n,Set(RECCALLERID=${CALLERID(number)})
+exten => _X.,n,GotoIf(${RECCALLERID}?m2)
+exten => _X.,n,Set(RECCALLERID=000)
+exten => _X.,n(m2),Set(RTIME=${STRFTIME(|${TZONE}|%F-%H:%M:%S)})
+exten => _X.,n,Set(RECDIR=${RTIME:0:10}/${RTIME:11:2})
+exten => _X.,n,Set(RECNAME=${RTIME}-${RECCALLERID}-${EXTEN}-${CALLDIRECTION}-${UNIQUEID}.WAV)
+exten => _X.,n,Set(TMPFILE=/tmp/monitor/${RECNAME})
+exten => _X.,n,System(/bin/mkdir /var/spool/asterisk/monitor/${RECDIR} -p -m 0757)
+exten => _X.,n,MixMonitor(${TMPFILE}|b|/bin/mv ${TMPFILE} /var/spool/asterisk/monitor/${RECDIR})
+exten => _X.,n,Return()
+
+
+2. With use of application CMonitor from a package ams-modules. 
+The package needs to be compiled and established preliminary.
+
+;for incoming calls
+exten => _X.,1,CMonitor(i)
+exten => _X.,2,.....
+
+;for outgoing calls
+exten => _X.,1,CMonitor(o)
+exten => _X.,2,.....
+
+Advantage CMonitor is simplicity, and also an opportunity to use a rule of the record, allowing to filter written down calls on a prefix and CallerID. 
+Application CMonitor writes only in a format wav49 and only bridged channels.
+In a configuration file ams.conf it is necessary to adjust parameters in section
+
+[cmonitor]
+
+use_rules=1 ; 0 - all calls are written, 1 - calls corresponding rules are written
+tmp_dir=/tmp/monitor ; The directory where is written a file till the moment of the termination of a call
+tables_in_memory=1; It is meaningful when use_rules=1, 0 - usual tables are used, 1 - table with rules of record is copied in memory that 
+;allows to accelerate time of select for ~30 %. 
+;In this case it is required to reload a configuration after modification in rules
+
+ 
+

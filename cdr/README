@@ -1,0 +1,172 @@
+=============================================================================================
+
+Asterisk Queue Log Analyzer (and CDR log Analyzer) Copyright (C) 2006 Earl C. Terwilliger
+
+=============================================================================================
+
+The Asterisk Queue (and CDR) Log Analyzer is a set of PHP scripts which allow selecting,
+listing and graphing of records from the Asterisk Queue and CDR logs via a WEB interface.
+
+For easier access to select specific log records, the Queue and CDR logs need to be in
+a MySQL database. Asterisk itself records (specified in a conf file) CDR data into a
+MySQL database table. A Python utility program called loadq.py is provided with this
+package which can be used to load queue log records (as they are created) into a MySQL
+database table.
+
+To create graphs, The Queue Analyzer uses Image_Graph found at http://pear.veggerby.dk.
+Image_Graph is an additional PHP add on package (PEAR). Also required is the GD image
+library and at least one True Type font. (more detail below)
+
+To install the Analyzer:
+
+1) Navigate to your WEB root directory, get the source and unpack it:
+
+	cd /var/www/html
+	wget http://www.micpc.com/qloganalyzer/qanalyzer.tar.gz
+	tar -xzvf qanalyzer.tar.gz
+
+2) Run the install steps
+
+   Note: To run the following commands, you will need to change to the appropriate
+         directory.
+
+	 cd /var/www/html/qanalyzer/install
+
+	 then cd into the cdr, loader or graph directories as mentioned below.
+
+         If you already have an Asterisk database installed, you will need to
+         modify the PHP (and Python) code here to use your database/table names
+         or switch your database/tables to the names used by the Queue Analyzer.
+         The database name used in the Queue/CDR Analyzer is asterisk with table names of
+         cdr, queuelog and users (asterisk.cdr, asterisk.queuelog and asterisk.users).
+
+         In the install/cdr directory, cdr.sql contains the SQL code needed to create
+         the CDR database table. cdrload.php is a PHP script to load any existing
+         CDR data into that table. The cdr.sql creates the asterisk database table.
+         Make sure to modify the cdr.sql to your requirements.
+
+   Create the database and cdr table:
+
+         mysql <cdr.sql 
+
+         If your Asterisk configuration is not using a CDR database, then create
+         the appropriate /etc/asterisk/cdr_mysql.conf containing something similar
+         to this and re-start Asterisk:
+ 
+		[global]
+		  hostname=localhost
+		  dbname=asterisk
+		  password=asterisk
+		  user=asteriskuser
+
+
+         The  cdrload.php script can be used to load any data exisiting in
+         /var/log/asterisk/cdr-csv/Master.csv into the CDR database table.
+
+   Note: In the install/loader directory, queuelog.sql contains the SQL code needed to
+         create the Queue Log database and the user tables.
+         loadq.py is a Python script to load data into the Queue Log database table.
+         loadq.sh is a shell script to run loadq.py as a task
+
+   Create the queuelog and users table:
+
+	 mysql <queuelog.sql
+
+         This creates the queuelog table and the users table. The users table has the
+         userid and passwords for users to login. Update this to change the default
+         userid and password (admin/admin) to your requirements.
+
+   Load any existing records into the queue log database table and watch for more
+        records to add them when available.
+
+	 loadq.sh
+
+         This script should be added to an appropriate Asterisk start-up or
+         system start-up script. No need to worry about duplicate records
+         as the loadq.py scripts accounts for that.
+         Look at the source for more detail. Also look at the FIFO.note file for
+         more info on solving the problem of loading queue log records in real time.
+
+   Note: In the install/graph directory, image_graph.sh can be used to install
+         Image_graph. Image_graph also needs the GD graphics libraries and True Type
+         fonts. http://corefonts.sourceforge.net has the fonts. Once Image_graph is
+         installed copy any fonts into /usr/share/pear/Image/Canvas/Fonts (or where
+         your pear installed Image_graph and its requisites.
+         (Actually, Queue Analyzer uses only the verdana.ttf font.)
+
+   Install Image_graph:
+
+	 image_graph.sh
+
+         Install the True Type fonts then copy the verdana.ttf font file
+         into /usr/share/pear/Image/Canvas/Fonts
+
+3) Test
+
+	 browse to:  http://localhost/qanalyzer
+ 
+         default supplied userid/password is  admin/admin
+
+   Note: You will want to remove the install sub-directory after your testing is complete.
+
+
+=============================================================================================
+
+			        Directory Contents
+
+=============================================================================================
+
+../
+   Main directory contains the index.php and login scripts  
+
+../cdr
+   Main directory for the CDR Log Analyzer PHP scripts
+
+../images
+   Images used in the PHP scripts
+
+../includes
+   PHP included files
+
+../javascript
+   Javascript for the calendar date select function
+
+../main
+   PHP scripts for the queue log analyzer
+
+../install
+   contains the installation files   
+  
+../install/graph   
+
+  Qanalyzer uses Image_Graph found at http://pear.veggerby.dk
+
+  image_graph.sh can be used as a model to install the Pear Image_graph
+  libraries. Image_graph also needs the GD graphics libraries and True Type
+  fonts. http://corefonts.sourceforge.net has the fonts. Once Image_graph is 
+  installed copy any fonts into /usr/share/pear/Image/Canvas/Fonts (or where 
+  your pear installed Image_graph and its requisites.
+
+../install/cdr
+
+   cdr.sql	  contains the SQL code needed to create the CDR database table
+   cdrload.php	  a PHP script to load any existing CDR data into the table
+   cdr_mysql.conf a sample /etc/asterisk/ asterisk config file for CDR to MySQL 
+
+../install/loader
+   
+   queuelog.sql contains the SQL code needed to create the Queue Log
+                database table
+   loadq.py     is a Python script to load data into the Queue Log database table
+   loadq.sh     is a shell script to run the loadq.py as a daemon
+   FIFO.note    text file documentation on queue loading problems and a solution
+
+=============================================================================================
+
+  Version 1.0 Released GPL 06-01-2006
+  Version 1.1 06-16-2006  documentation corrections, updated /index.php
+  Version 1.2 08-14-2008  documentation corrections for loading the queue_log
+
+  The author Earl Terwilliger can be reached at earl@micpc.com for comments or suggestions.
+
+=============================================================================================

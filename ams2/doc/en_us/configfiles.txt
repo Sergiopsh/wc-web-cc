@@ -1,0 +1,14 @@
+ConfigFiles
+==============
+
+This module allows to edit, save and print Asterisk config files (in a folder/etc/asterisk). 
+The corresponding rights are necessary for record of files for a web-server. 
+Execute a following command: 
+
+shell> chown-R nobody:nobody/etc/asterisk 
+
+Instead of nobody substitute a name of the user on behalf of which your web-server works. 
+During the moment of opening of a file its copy (a file with expansion conf~) is kept. 
+It enables recoil on the previous variant if something has gone not so after.
+
+You can edit also files and in other folders. For this purpose in a file config.php edit parameter $configfiles_dirs.

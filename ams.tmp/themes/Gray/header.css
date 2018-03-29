@@ -1,0 +1,28 @@
+.h_logo {
+/*    color: #990000;*/
+/*    color: #2a559d;*/
+    color: #999999;
+    font-size: 18px;
+    font-family: tahoma,sans;
+    font-style: italic;
+    font-weight: 700;
+}
+.top-menu {
+    margin-top: 0px;
+    font-size: 11px;
+    font-family: verdana,sans;
+    font-style: normal;
+    font-weight: 700;
+}
+.top-menu a:link {
+    color: #222222;
+    text-decoration: none;
+}
+.top-menu a:visited {
+    color: #222222;
+    text-decoration: none;
+}
+.top-menu a:hover {
+    color: #f20;
+    text-decoration: none;
+}

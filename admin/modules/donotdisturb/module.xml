@@ -1,0 +1,24 @@
+<module>
+	<rawname>donotdisturb</rawname>
+	<name>Do-Not-Disturb (DND)</name>
+	<version>2.5.0.6</version>
+	<changelog>
+		*2.5.0.6* localization updates
+		*2.5.0.5* #3274
+		*2.5.0.4* #3215, localization fixes
+		*2.5.0.3* localization, xml description, Swedish
+		*2.5.0.2* #2969 change default value to *76
+		*2.5.0.1* #2909 Add DND hints
+		*2.5.0* added toggle and support for func_devstate
+		*2.4.0* bunp for 2.4
+		*1.0.2.2* changed category
+		*1.0.2.1* bump for rc1
+		*1.0.2* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
+		*1.0.1* First release for 2.2
+	</changelog>
+	<description>Provides donotdisturb featurecodes</description>
+	<type>setup</type>
+	<category>Internal Options &amp; Configuration</category>
+	<location>release/2.5/donotdisturb-2.5.0.5.tgz</location>
+	<md5sum>db24bae455ee51f3e8a5f0f7733defe7</md5sum>
+</module>

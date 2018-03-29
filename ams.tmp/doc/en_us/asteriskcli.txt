@@ -1,0 +1,6 @@
+AsteriskCLI
+==============
+
+This module allows to execute Asterisk commands, is similar as from a command line of the Asterisk. 
+The history of commands and results of their performance (up to 50) is kept. 
+Clicking on arrows 'left' - 'right' you can look through history of commands.

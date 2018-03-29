@@ -1,0 +1,51 @@
+.st_menu {
+    font-size: 11px;
+    color: #ffffff;
+    background-color: #ffffff;
+    border-bottom: 1px solid #9E9E9E;
+    border-left: 1px solid #9E9E9E;
+    border-right: 1px solid #9E9E9E;
+}
+.st_menutdicon {
+    font-size: 11px;
+    color: #ffffff;
+    background-color: #ffffff;
+    padding-bottom: 2px;
+    padding-top: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-right: 1px solid #f9f9f9;
+}
+.st_menutd {
+    font-size: 11px;
+    color: #ffffff;
+    background-color: #dedede; 
+    padding: 3px;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #cccccc;
+    font-family: arial,sans,sans-serif;
+}
+.st_menutd_h {
+    font-size: 11px;
+    font-weight: 500; 
+    color: #34548f;
+    font-family: arial,sans,sans-serif;
+    background-color: #cecece;        
+    padding: 3px;
+    border-top: 1px solid #fafafa;
+    border-bottom: 1px solid #cccccc;
+}		
+.st_menulink {
+    color: #33485c;
+    text-decoration: none;
+    border-bottom: 0px;
+    padding-left: 0px;
+    cursor: hand; 
+}
+a.st_menulink:hover {
+    color: #990033;
+    text-decoration: none;
+    border-bottom: 0px;
+}
+
+

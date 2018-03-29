@@ -1,0 +1,34 @@
+        		Install Directory Contents
+
+../graph   
+
+  Qanalyzer uses Image_Graph found at http://pear.veggerby.dk
+
+  image_graph.sh can be used as a model to install the Pear Image_graph
+  libraries. Image_graph also needs the GD graphics libraries and True Type
+  fonts. http://corefonts.sourceforge.net has the fonts. Once Image_graph is 
+  installed copy any fonts into /usr/share/pear/Image/Canvas/Fonts (or where 
+  your pear installed Image_graph and its requisites.
+
+../cdr
+
+   cdr.sql contains the SQL code needed to create the CDR database table
+   cdrload.php is a PHP script to load any existing CDR data into the table
+   cdr_mysql.conf is for /etc/asterisk and configures Asterisk to use MySQL
+   for cdr data (asterisk addons functionality will also be needed)
+
+   Note: the cdr.sql creates the asterisk database and cdr table
+         the asterisk database is also used by the queuelog.sql code, so
+         run:    mysql <cdr.sql 
+         then:   mysql <../loader/queuelog.sql
+
+../loader
+   
+   queuelog.sql contains the SQL code needed to create the Queue Log
+                database table
+   loadq.py     is a Python script to load data into the Queue Log database table
+   loadq.sh     is a shell script to run the loadq.py as a daemon 
+                (the better solution is implement what is described in FIFO.note)
+  
+   FIFO.note    is a test document with more information on how to make the
+                Asterisk Queue Log a FIFO to solve queue loading problems

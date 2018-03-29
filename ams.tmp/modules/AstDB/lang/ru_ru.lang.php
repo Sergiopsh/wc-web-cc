@@ -1,0 +1,29 @@
+<?php
+$strAstDB='Астериск БД';
+$strDBFamily='Family';
+$strDBKey='Key';
+$strDBValue='Value';
+$strDBRecord='Запись';
+$strNoDBRecords='Нет записей...';
+$strAddNew='Добавить';
+$strUpdate='Сохранить';
+$strClear='Сбросить';
+$strSearch='Поиск';
+$strAddRecord='Добавить запись';
+$strEditRecord='Редактировать запись';
+$strDeleteRecord='Удалить запись';
+$strWinConfirmDeleteFamily='Удалить ветвь?';
+$strWinConfirmDeleteValue='Удалить запись?';
+$strWinConfirmDeleteSelected='Удалить выбранные записи?';
+$strDeleteEntrySuccess='Запись успешно удалена...';
+$strDeleteSelectedSuccess='Записи успешно удалены...';
+$strDeleteEntryFailed='Ошибка удаления записи...';
+$strInsertEntrySuccess='Запись успешно сохранена...';
+$strInsertEntryFailed='Ошибка при сохранении записи...';
+$strCantOpenSocket='Ошибка при создании соединения с Астериском...';
+$strConnectionTimeout='Таймаут соединения с Астериском...';
+$strNoAnswer='Нет ответа от Астериска...';
+$strResponseError='Некорректная команда...';
+$strAuthenticationFailed='Ошибка авторизации при соединении с Астериском...';
+$strMustNotContainSpace='Поля не должны содержать пробелов';
+?>

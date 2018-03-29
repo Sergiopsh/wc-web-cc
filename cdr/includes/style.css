@@ -1,0 +1,100 @@
+body
+{font-family: Helvetica, Arial, sans-serif;
+  background: #fff url(../images/white_bg.gif) repeat-x;
+
+font-size: 12px}
+
+th
+{
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+white-space: nowrap;
+background-color: #E7E9F2;
+}
+
+table { border: thin; }
+
+span.leftmenuitem
+{
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+}
+
+td
+{font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+}
+
+address
+{font-family: Helvetica, Arial, sans-serif;
+font-size: 8pt}
+
+h5
+{font-family: Helvetica, Arial, sans-serif;
+font-size: 8pt}
+
+form
+{font-family: Helvetica, Arial, sans-serif;
+font-size: 12px}
+
+h1
+{font-family: Helvetica, Verdana, Arial, sans-serif;
+/* text-decoration:underline; */
+text-align: center;
+font-size: 16pt;
+font-weight: bold}
+
+h2
+{font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 14pt;
+font-weight: bold}
+
+A:link
+{color: blue;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+text-decoration: none}
+
+A:visited
+{color: blue;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+text-decoration: none}
+
+A:hover
+{color: red;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 12px;
+text-decoration: underline}
+
+A:link.nav
+{color: #000000;
+font-family: Helvetica, Verdana, Arial, sans-serif}
+
+A:visited.nav
+{color: #000000;
+font-family: Helvetica, Verdana, Arial, sans-serif}
+
+A:hover.nav
+{color: red;
+font-family: Helvetica, Verdana, Arial, sans-serif}
+
+.nav
+{color: #000000;
+font-family: Helvetica, Verdana, Arial, sans-serif}
+
+A.age0min { color:#FF0000 }
+A.age5min { color:#FF00FF }
+A.age15min { color:#FF7F00 }
+A.age30min { color:#007FFF }
+A.age60min { color:#0000FF }
+
+/* For the color code table */
+A:visited.age0min { color:#FF0000 }
+A:visited.age5min { color:#FF00FF }
+A:visited.age15min { color:#FF7F00 }
+A:visited.age30min { color:#007FFF }
+A:visited.age60min { color:#0000FF }
+

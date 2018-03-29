@@ -1,0 +1,32 @@
+INSTALL
+========
+
+1.Unpack ams-xxx.tar.gz and copy all files somewhere to htdocs directory (for example, 
+  directory ams). Go to the address http://your_web_server_address/ams/index.php from web-browser
+  and follow instructions.
+ 
+or manually..
+
+2.Unpack ams-xxx.tar.gz and copy all files somewhere to htdocs directory (for example, 
+  directory ams). Create MySQL Database (for example, ams). 
+  Use file ams/install/mysql.sql to create necessary tables:
+  
+  shell> mysql --password=<mysql_password> --user=<mysql_user> ams < install/mysql.sql
+  
+  Copy file ams/install/_config.php to ams/config.php. Edit this file.
+  Go to the address http://your_web_server_address/ams/index.php. Use login - admin, password - admin.
+ 
+ Asterisk Channels & Events Monitor module
+ ==========================================
+ For proper working Asterisk Channels & Events Monitor module do the following:
+	- copy folder path_to_ams/static-http/ams to /var/lib/asterisk/static-http
+	- in file /etc/asterisk/manager.conf set 
+			webenabled = yes
+	- in file /etc/asterisk/http.conf set
+			enabled = yes
+			enablestatic = yes
+			bindport = 8080
+			prefix = asterisk
+	- in file path_to_ams/config.php edit parameter $asterisk_http_url
+		$asterisk_http_url = "http://asterisk_server_ip_address:8080/asterisk";
+		

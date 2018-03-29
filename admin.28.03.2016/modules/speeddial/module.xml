@@ -1,0 +1,23 @@
+<module>
+	<rawname>speeddial</rawname>
+	<name>Speed Dial Functions</name>
+	<version>2.5.0.1</version>
+	<changelog>
+		*2.5.0.1* localization updates
+		*2.5.0* #2887
+		*2.4.0* bump for 2.4
+		*1.0.4.2* #2329 add WaitExten after background
+		*1.0.4.1* bump for rc1
+		*1.0.4* #2049 remove use of speedial-clean, allow leading 0s
+		*1.0.3* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
+		*1.0.2* No comment
+		*1.0.1* First release for 2.2
+	</changelog>
+	<type>module</type>
+	<category>CID &amp; Number Management</category>
+	<depends>
+		<module>phonebook</module>
+	</depends>
+	<location>release/2.5/speeddial-2.5.0.tgz</location>
+	<md5sum>107a8c403e3584da5a408a3c36ed48fa</md5sum>
+</module>

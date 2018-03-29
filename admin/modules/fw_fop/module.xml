@@ -1,0 +1,18 @@
+<module>
+	<rawname>fw_fop</rawname>
+	<name>FreePBX FOP Framework</name>
+	<version>2.5.0.1</version>
+	<candisable>no</candisable>
+	<canuninstall>no</canuninstall>
+	<changelog>
+		*2.5.0.1* typo in install script
+		*2.5.0* First release of fw_fop
+	</changelog>
+	<description>
+		This module provides a facility to install bug fixes to the FOP code that is not otherwise housed in a module, it used to be part of framework but has been removed to isolate FOP from Framework updates.
+	</description>
+	<type>setup</type>
+	<category>Basic</category>
+	<location>release/2.5/fw_fop-2.5.0.tgz</location>
+	<md5sum>8e0813a411d46cd23f180b89ddc56b44</md5sum>
+</module>

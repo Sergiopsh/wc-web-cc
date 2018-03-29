@@ -1,0 +1,34 @@
+﻿FileManager
+==============
+
+Functions:
+---------
+1. The module allows to copy, move, delete, rename files and folders. 
+Working directories/var/lib/asterisk as ' Asterisk Libs' and/var/lib/asterisk/sounds as ' Asterisk Sounds' are originally set. 
+You can edit parameter $filemanager_dirs in a file config.php. 
+The web-server should have corresponding access rights to files in these folders. 
+For this purpose it is possible execute a following command: 
+
+shell> chown-R nobody:nobody/var/lib/asterisk 
+
+Instead of nobody substitute a name of the user on behalf of which your web-server works. 
+
+2. Look through and edit (depending on type of a file) text, pdf, etc. files. 
+
+3. To receive the detailed information on a file. 
+For this purpose guide the cursor of a mousy addressed to a file and detain more than 2 сек. 
+There will be a window with the detailed information on the given file. 
+
+4. Listen MP3 and wav to files. 
+
+5. Listen to voice files on a telephone set. 
+In a service window you can set the report (SIP, IAX, Zap) and number of service phone. 
+
+6. Upload the local and removed files on a server. 
+
+7. Write down voice files in the chosen directory from specified service phone. 
+
+Note: At installation AMS the file install/ams_ext.conf is copied in/etc/asterisk and in a file extensions.conf 
+the line #include "ams_ext.conf" is added. 
+If you established AMS manually or for any reasons of it has not been made copy a file install/ams_ext.conf in/etc/asterisk and edit extensions.conf manually. 
+It is necessary for correct work items 6 and 7.

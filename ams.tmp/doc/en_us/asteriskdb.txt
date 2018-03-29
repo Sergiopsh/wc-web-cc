@@ -1,0 +1,5 @@
+AsteriskDB
+==============
+
+This module allows to edit and add new values in an Asterisk internal database. 
+Also there is an opportunity of search. In a pattern of search it is possible to a symbol * as a wildcard. 

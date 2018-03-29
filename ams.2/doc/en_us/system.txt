@@ -1,0 +1,6 @@
+System
+==============
+
+This module allows to execute system shell commands on behalf of the user with which the web-server is started. 
+The history of commands and results of their performance (up to 50) is kept. 
+Clicking on arrows 'left' - 'right' you can look through history of commands.

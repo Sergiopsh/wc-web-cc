@@ -1,0 +1,121 @@
+body {
+    font-family: verdana,arial,sans;
+    font-size: 12px;
+    background-color: #ffffff;
+	margin : 0;
+
+}
+a img {
+    margin: 0;
+    border: 0;
+    padding-right: 6px;
+}
+input,select {
+	background-color: #fbfbfb;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #a0a0a0;
+	font-size: 11px;
+	margin: 0px;
+}
+.chanlist {
+
+	background-color : #f1f1f1;
+	font-size: 11px;
+	margin: 0;
+	height: 550px;
+}
+
+.chantable {
+	border           : 0px;
+	background-color : #f1f1f1;
+	width			: 100%;
+	font-size: 11px;
+}
+
+.labels {
+	background-color : #000000;
+	color : #ffffff;
+	font-size: 11px;
+}
+
+.chanlisteven {
+/*	background-color : #fff8e4;*/
+	background-color : #cccccc;
+}
+
+.chanlistodd {
+	background-color : #f0f5ff;
+}	
+
+.chanlistselected {
+	background-color : #ffb13d;
+}
+
+.light {
+	color : #717171;
+}
+.filter-tbl {
+	background-color: #eeeecc;
+	border-bottom: 1px solid #34548f;
+	border-top: 1px solid #34548f;
+
+}
+.filter-tbl table {
+	font-family: verdana,arial,sans;
+	font-size: 11px;
+}
+#statusbar {
+    padding-right: 8px;
+    font-size: 11px;
+	color: green;
+	font-style: italic;
+}
+.event-tbl {
+	/*background-color : #f1f1f1;*/
+	font-size: 10px;
+	font-family: verdana,arial,sans;
+	margin: 0;
+}
+
+.main-tbl {
+	border: 1px solid #1f669b;
+	background-color: #d5d5d5;
+}
+.button-off {
+	border: 1px solid #34548f;
+	border-bottom: 0;
+	background-color: #f1f1f1;
+	padding: 2px;
+}
+.button-off a {
+	color: black;
+	font-size: 10px;
+	text-decoration: none;
+}
+.button-on {
+	border: 1px solid #34548f;
+	border-bottom: 0;
+	background-color: #34548f;
+	color: white;
+	padding: 2px;
+}
+.button-on a {
+	color: white;
+	font-size: 10px;
+	text-decoration: none;
+}
+.evrow {
+	margin-top: 3px;
+	font-size: 11px;
+	font-family: verdana,arial,sans;
+}
+.evchanname {
+	background-color: #bcc5d7;
+}
+.evdata {
+	background-color: #c7dab9;
+}
+.evcontext {
+	background-color: #eddb50;
+}

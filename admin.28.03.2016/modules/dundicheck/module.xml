@@ -1,0 +1,24 @@
+<module>
+	<rawname>dundicheck</rawname>
+	<name>DUNDi Lookup Registry</name>
+	<version>2.5.0.1</version>
+	<changelog>
+		*2.5.0.1* localization updates
+		*2.5.0* #2918 First release
+	</changelog>
+	<description>
+		This module will check all configured and enabled DUNDi trunks as part of the extension registry function, and report back conflicts if
+		other sites have the same extensions. This does not filter against the route patterns - it will take any number being created and
+		report a conflict if that turnk could be used to call that number.
+	</description>
+	<type>tool</type>
+	<menuitems>
+		<dundicheck>DUNDi Lookup</dundicheck>
+	</menuitems>
+	<depends>
+		<version>2.4.0</version>
+	</depends>
+	<category>System Administration</category>
+	<location>release/2.5/dundicheck-2.5.0.tgz</location>
+	<md5sum>a84838a7ed6ce465db31ec55dc48a978</md5sum>
+</module>

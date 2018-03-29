@@ -1,0 +1,68 @@
+<?
+function workTime($period_from,$period_to,$agent='')
+{
+    if(!$db) $db=DbConnect();
+    $date_clause=" AND time_id >= $period_from AND time_id < $period_to";
+
+    $QUERY="SELECT time_id, verb FROM queuemetrics.queue_log";
+    $QUERY.=" WHERE queue='580' and agent='".$agent."'";
+    $QUERY.=" AND verb IN ('ADDMEMBER','REMOVEMEMBER');
+    $QUERY.=$date_clause;
+    
+    $list_addmember=$db->get_list($QUERY);
+    $num_add=$db->count;
+
+/*    $QUERY1="SELECT time_id FROM queuemetrics.queue_log";
+    $QUERY1.=" WHERE queue='580' and agent='".$agent."'";
+    $QUERY1.=" AND verb='REMOVEMEMBER'";
+    $QUERY1.=$date_clause;
+    
+    $list_removemember=$db->get_list($QUERY1);
+    $num_remove=$db->count;
+*/
+    $w_time = 0;
+
+/*    if ($num_add==0&&$num_remove==0) {
+	return $w_time;
+    }	
+    elseif ($num_add==0&&$num_remove>0) {
+	return $w_time = $list_removemember[0]-$period_from;
+    }
+    elseif ($num_add>0&&$num_remove==0) {
+	return $w_time = $period_to - $list_addmember[0];
+    }
+    else {
+print_r($list_addmember);
+echo "<br>";
+print_r($list_removemember);
+    echo $list_removemember[0][0]." <br>";
+    $arr = array();
+    $i=0; $j=0;
+    if ($list_removemember[0][0]>$list_addmember[0][0]) {
+	//$w_time+=$list_removemember[0]-$period_from;
+	$arr[0][0]=$period_from;
+	$arr[0][1]=$list_removemember[0][0];
+	$i=1; $j=1;
+    }
+    foreach ($list_addmemeber as $time_add) {
+    $arr[$i++][0]=$time_add;
+    }
+    foreach ($list_removememeber as $time_remove) {
+    $arr[$j++][1]=$time_remove;
+    }
+    if ($list_addmember[$num_add-1]>$list_removemember[$num_remove-1]) {
+	//$w_time+=$period_to-$list_addmember[$num_add-1];
+	$arr[j][1]=$period_to;
+	}
+    echo "<br>";
+    print_r($arr);
+    //$n=size($arr);
+    /*for (k=0;k<$n;k++) {$w_time +=$arr[k][1]-$arr[k][0]; }*/
+//	return $w_time;
+return "нужно вывести w_time";
+
+
+    };
+}
+*/
+?>

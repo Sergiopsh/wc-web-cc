@@ -1,0 +1,34 @@
+<?php
+$strModuleName='Имя';
+$strModule='Модуль';
+$strWinConfirmDeleteModule='Подтверждаете удаление модуля';
+$strDeleteModule='Удалить модуль';
+$strEditModule='Редактировать модуль';
+$strActive='Активный';
+$strCreatedBy='Создано';
+$strModifiedBy='Изменено';
+$strDateEntered='Дата создания';
+$strDateModified='Дата изменения';
+$strViewModule='Информация о модуле';
+$strModulesList='Модули';
+$strHidden='Спрят.';
+$strAdminOnly='Админ.';
+$strIcon='Иконка';
+$strMainMenu='Главное меню';
+$strAddModule='Добавить';
+$strClear='Сбросить';
+$strUpdate='Сохранить';
+$strDisable='Disable';
+$strFull='Full';
+$strView='View';
+$strAccess='Access';
+$strACLName='ACL Name';
+$strLevel1='Level 1';
+$strLevel2='Level 2';
+$strLevel3='Level 3';
+$strTest='Test';
+$strAction='Действие';
+$strMakeConfig='Make Config';
+$strConfigWrited='Конфиг записан';
+$strNoACL='Спрят.(не в списке ACL)';
+?>

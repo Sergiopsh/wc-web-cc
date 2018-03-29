@@ -1,0 +1,6 @@
+Upgrade from version 1.0.1 to 1.0.2
+====================================
+- save file path_to_ams/config.php somewhere
+- replace all files in folder where ams is with new files from packet ams-1.0.2
+- move config.php back
+- for new module Asterisk Channels & Events Monitor see README

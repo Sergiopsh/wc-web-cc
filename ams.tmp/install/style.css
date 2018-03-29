@@ -1,0 +1,129 @@
+form {
+    margin: 0px;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+table tr {
+    font-size: 0.9em;
+}
+
+body {
+	font-size: 0.9em;
+	font-family: verdana, sans, arial;
+	margin: 0;
+	padding: 0;
+	background-color: #e9e9e9;
+}
+acronym {
+    border: 0;
+    margin: 0;
+}
+a:link {
+	color: #48468f;
+	text-decoration: none;
+}
+a:visited {
+	color: #48468f;
+	text-decoration: none;
+}
+a:hover {
+	color: #f20;
+	text-decoration: none;
+}
+
+a[name] {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+input,select {
+    background-color: #fbfbfb;
+    border: 1px solid #a0a0a0;
+    font-family: verdana, sans, arial;
+    font-size: 11px;
+    margin: 0px;
+}
+
+textarea {
+    font-family: verdana, sans, arial;
+    border: 1px solid #a0a0a0;
+    font-size: 11px;
+    background-color: #ffffff;
+    margin: 1px;
+}
+
+.checkbox, .radio {
+    border: 0px;
+    background-color: transparent;
+    vertical-align: bottom;
+    margin: 0px;
+}
+iframe {
+    border: 0;
+    background-color: #e9e9e9;
+}
+
+
+.config-header {
+
+    color: #ffffff;
+    background-repeat: repeat-y;
+    background-position: 0% 0%;
+    background-image : url(images/hor_bg.png);
+    font-size: 11px;
+/*    font-family: verdana, arial, sans, sans-serif;*/
+    font-weight: 600;
+    width: 50%;
+    height: 14px;
+    padding: 1px;
+    padding-bottom: 3px;
+    min-width: 300px;
+    vertical-align: middle;
+}
+
+.input-data-tbl {
+    border: 1px solid #34548f;
+/*    background-repeat: repeat-x;
+    background-position: 100% 0%;
+    background-image : url(images/bg_blue.gif);*/
+    padding-left: 5px;
+    font-size: 12px;
+    background-color: #e5edf2;
+    
+}
+
+.sbutton {
+    border: 0px solid #386ca1; 
+    font-size: 11px;
+    font-family: verdana,sans, sans-serif;
+    color: white;
+    margin: 0px;
+    width: 100px;
+    /*background-color: #3f7bb7; */
+    background-repeat: repeat-x;
+    background-position: 100% 0%;
+    background-image : url(images/coralbg.png);
+    padding: 1px;
+}
+
+.message {
+    font-size: 10px;
+    font-family: verdana,sans, sans-serif;
+    font-style: italic;
+    color: #34548f;
+
+}
+.i_readonly {
+    background-color: #dddddd;
+/*    font-size: 10px;
+    font-family: verdana,sans, sans-serif;
+    font-style: italic;
+    color: #34548f;*/
+
+}
+
+

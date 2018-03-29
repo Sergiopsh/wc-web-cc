@@ -1,0 +1,37 @@
+﻿VirtualFax
+================
+
+This module allows to look through in PDF a format, to delete, load faxes to the local computer, received by the Asterisk. 
+Also it is possible to search by date of and time, number and CallerID. Faxes should be stored in a format tif in a directory/var/spool/asterisk/faxes (edit $faxes_dir in config.php if you want to change the directory).
+
+Example of a configuration is resulted below:
+
+extensions.conf
+----------------
+
+[fax-in]
+
+exten => _X.,1,Answer
+exten => _X.,n,Wait(1)
+exten => _X.,n,Gosub(set-fax-vars,${EXTEN},1)
+exten => _X.,n,Set(EMAILADDR=${DB(fax/${EXTEN})})
+exten => _X.,n,GotoIf(${EMAILADDR}?getfax)
+exten => _X.,n,Set(EMAILADDR=default@address.com)
+exten => _X.,n(getfax),rxfax(${FAXFILE})
+
+exten => h,1,System(/usr/local/bin/mail ${FAXFILE} ${EMAILADDR} ${DATETIME} ${CALLERID(number)} ${REMOTESTATIONID} ${FAXPAGES} ${FAXBITRATE} ${FAXRESOLUTION})  
+
+
+
+[set-fax-vars]
+
+exten => _X.,1,Set(TZONE=YEKT)
+exten => _X.,n,Set(FAXCALLERID=${CALLERID(number)})
+exten => _X.,n,GotoIf(${FAXCALLERID}?m1)
+exten => _X.,n,Set(FAXCALLERID=000)
+exten => _X.,n(m1),Set(FTIME=${STRFTIME(,${TZONE},%F-%H:%M:%S)})
+exten => _X.,n,Set(FAXDIR=${FTIME:0:10}/${FTIME:11:2})
+exten => _X.,n,Set(FAXFILE=/var/spool/asterisk/faxes/${FAXDIR}/${FTIME}-${FAXCALLERID}-${EXTEN}-${UNIQUEID}.tif)
+exten => _X.,n,System(/bin/mkdir /var/spool/asterisk/faxes/${FAXDIR} -p -m 0757)
+exten => _X.,n,Return
+

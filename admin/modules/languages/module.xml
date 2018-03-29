@@ -1,0 +1,33 @@
+<module>
+	<rawname>languages</rawname>
+	<name>Languages</name>
+	<version>2.5.0.8</version>
+	<type>setup</type>
+	<category>Internal Options &amp; Configuration</category>
+	<description>
+		Adds the ability to changes the language within a call flow and add language attribute to users.
+	</description>
+	<menuitems>
+		<languages>Languages</languages>
+	</menuitems>
+	<changelog>
+		*2.5.0.8* localization updates, r7132 warning
+		*2.5.0.7* localization string enclosures
+		*2.5.0.6* localization, Swedish
+		*2.5.0.5* #3174 fix validation code
+		*2.5.0.4* #3110, #3138
+		*2.5.0.3* #2530 typo _GLOBALS should be GLOBALS
+		*2.5.0.2* fix depends to 2.5.0alpha1
+		*2.5.0.1* r6123 inject macro-user-callerid with required language setting (was hardcoded)
+		*2.5.0* #2845 tabindex
+		*2.4.0.3* #2843 Russian Translation, removal of un-needed code
+		*2.4.0.2* added depends on 2.4.0
+		*2.4.0.1* #2578 use setlanguage to handle changes in Asterisk 1.6
+		*2.4.0* First release of module
+	</changelog>
+	<depends>
+		<version>2.5.0alpha1</version>
+	</depends>
+	<location>release/2.5/languages-2.5.0.7.tgz</location>
+	<md5sum>2932236132327aca4993f55a690378ba</md5sum>
+</module>

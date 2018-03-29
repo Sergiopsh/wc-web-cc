@@ -1,0 +1,29 @@
+<?php
+$strDepartment='Department';
+$strEmployee='Employee';
+$strDepartments='Departments';
+$strDepartmentsList='Departments List';
+$strDepartmentName='Name';
+$strAddDepartment='Add Department';
+$strEditDepartment='Edit department';
+$strDeleteDepartment='Delete department';
+$strDeleteSelected='Delete selected departments';
+$strViewEmployees='View employees';
+$strNameDep='Name';
+$strChief='Chief';
+$strTel='Tel.(any)';
+$strEmail='E-mail';
+$strPhoneWork='Phone Work';
+$strPhoneOffice='Phone Office';
+$strShowDisabled='Show disabled';
+$strNoDeps='No departments';
+$strExportCSV='Export to CSV';
+$strActive='Active';
+$strDisabled='Inactive';
+$strDesc='Description';
+$strDepartmentSaveSuccess='Department saved...';
+$strWinConfirmDeleteDep='Confirm delete department';
+$strFax='Fax';
+$strDepartmentExists='Department exists, please, check...';
+$strWinConfirmDeleteSelected='Confirm delete selected departments';
+?>

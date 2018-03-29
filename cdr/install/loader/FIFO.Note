@@ -1,0 +1,42 @@
+Asterisk creates the queue_log file and writes queue records into it.
+The problem is that when any program reads it, that program will come to the 
+end of the file and then??  the program will need to wait for more data.. 
+that is a problem programatically.. because at end of file normally you are 
+done.. using pipes solves that problem
+
+my 'solution' in the shell script to take the new records via tail -f and pipe 
+them into the loadq program might not work on your system...
+
+SO one solution that you see in the fifoqueue.pl program
+(do a Google search for asterisk fifo queue_log) 
+is to make the  queue_log file a FIFO 'file'...  that way the program reading
+it will not really ever get an end of file.. 
+it will say give me a record and will be put in a wait state till another
+record is available (ie asterisk writes one)..
+
+so if you basically just stop asterisk,
+make sure all the data from the exisiting queue_log is imported
+
+via  loadq.py </var/log/asterisk/queue_log
+
+(note: loadq.py will end because it will reach end of file..)
+
+then
+
+rm /var/log/asterisk/queue_log
+
+then
+
+mkfifo -m 664 /var/log/asterisk/queue_log
+
+then make sure the loadq.py program starts before asterisk
+(or asterisk will have a problem)
+
+loadq.py </var/log/asterisk/queue_log &
+
+then restart asterisk
+
+asterisk -p
+
+(note: loadq.py will end when asterisk ends, also note that the
+queue_log file is always empty)

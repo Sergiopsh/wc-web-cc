@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title></title>
+<script type="text/javascript" src="prototype.js"></script>
+<script type="text/javascript" src="astman.js"></script>
+<link href="astman.css" media="all" rel="Stylesheet" type="text/css" />
+<head>
+<body onload="localajaminit();" >
+
+
+<script>
+	var logins = new Object;
+	var logoffs = new Object;
+	var channels = new Object;
+	var pongs = new Object;
+	var loggedon = -1;
+	var selectedchan = null;
+	var hungupchan = "";
+	var transferedchan = "";
+	var username = "";
+	var secret = "";
+	var monitor = new Object;
+	var chantimer;
+		
+	function loggedOn() {
+		if (loggedon == 1)
+			return;
+		loggedon = 1;
+		//$('statusbar').innerHTML = "<i>Retrieving channel status...</i>";
+		astmanEngine.pollEvents();
+		astmanEngine.sendRequest('action=status', monitor.channels);
+	}
+	
+	function clearChannelList() {
+		$('channellist').innerHTML = "<i class='light'>Not connected</i>";
+		
+	}
+
+	function loggedOff() {
+		if (loggedon == 0)
+			return;
+		loggedon = 0;
+		selectedchan = null;
+		astmanEngine.channelClear();
+	 	clearChannelList();
+	}
+
+	monitor.channelCallback = function(target) {
+		selectedchan = target;
+		
+	}
+	
+	monitor.channels = function(msgs) {
+		resp = msgs[0].headers['response'];
+		if (resp == "Success") {
+			loggedOn();
+		} else
+			loggedOff();
+
+		for (i=1;i<msgs.length - 1;i++) 
+			astmanEngine.channelUpdate(msgs[i]);
+		$('channellist').innerHTML = astmanEngine.channelTable(monitor.channelCallback);
+		$('statusbar').innerHTML = "Ready";
+		
+	}
+
+	monitor.logins = function(msgs) {
+		$('statusbar').innerHTML = msgs[0].headers['message'];
+		resp = msgs[0].headers['response'];
+		if (resp == "Success")
+			loggedOn();
+		else
+			loggedOff();
+	};
+	
+	
+	monitor.logoffs = function(msgs) {
+		$('statusbar').innerHTML = msgs[0].headers['message'];
+		loggedOff();
+	};
+
+	monitor.hungup = function(msgs) {
+		$('channellist').innerHTML = msgs[0].headers['privilege'];
+		//$('statusbar').innerHTML = "Hungup " + hungupchan;
+		
+	}
+	
+	monitor.transferred = function(msgs) {
+		$('statusbar').innerHTML = "Transferred " + transferredchan;
+	}
+	function doTimer() {
+	    doStatus();
+	    chantimer=setTimeout("doTimer()",1000);
+	}
+	function doHangup() {
+		astmanEngine.sendRequest('action=command&command=! uptime', monitor.hungup);
+		//return;
+		if(!$(selectedchan)) {selectedchan=null; return; }
+		hungupchan = selectedchan;
+		astmanEngine.sendRequest('action=hangup&channel=' + selectedchan, monitor.hungup);
+	}
+
+	function doStatus() {
+		$('statusbar').innerHTML = "<i>Updating channel status...</i>";
+		astmanEngine.channelClear();
+		astmanEngine.sendRequest('action=status', monitor.channels);
+	}	
+	function doFiltersChannels() {
+		
+		astmanEngine.f_chan=$('f_chan').value.toLowerCase();
+		astmanEngine.f_state=$('f_state').value.toLowerCase();
+		astmanEngine.f_callerid=$('f_callerid').value.toLowerCase();;
+		doStatus();
+	}
+	function doFiltersEvents() {
+		astmanEngine.e_userfield=$('e_userfield').value.toLowerCase();
+		astmanEngine.e_userfield_name=$('e_userfield_name').value;
+		astmanEngine.e_event=$('e_event').value.toLowerCase();
+	}
+	function doChangeEventFormat(type) {
+		astmanEngine.ev_format = type;
+	}
+	function doLogin(username,secret) {
+		$('statusbar').innerHTML = "<i>Logging in...</i>";
+		astmanEngine.sendRequest('action=login&username='+username+'&secret='+secret, monitor.logins);
+	}
+	
+	function doTransfer() {
+		if(!$(selectedchan)) {selectedchan=null; return; }
+		var channel = astmanEngine.channelInfo(selectedchan);
+		var exten = prompt("Enter new extension for " + selectedchan,"");
+		var altchan;
+		if (exten) {
+			if (channel.link) {
+				if (confirm("Transfer " + channel.link + " too?"))
+					altchan = channel.link;
+			}
+			if (altchan) {
+				transferredchan = selectedchan + " and " + altchan + " to " + exten;
+				astmanEngine.sendRequest('action=redirect&channel=' + selectedchan + "&priority=1&extrachannel=" + altchan + "&exten=" + exten, monitor.transferred);
+			} else {
+				transferredchan = selectedchan + " to " + exten;
+				astmanEngine.sendRequest('action=redirect&channel=' + selectedchan + "&priority=1&exten=" + exten, monitor.transferred);
+			}
+		}
+	}
+	
+	function doLogoff() {
+		$('statusbar').innerHTML = "<i>Logging off...</i>";
+		astmanEngine.sendRequest('action=logoff', monitor.logoffs);
+	}
+	
+	monitor.pongs  = function(msgs) {
+		resp = msgs[0].headers['response'];
+		if (resp == "Pong") {
+			loggedOn();
+		} else {
+			doLogin(this.username,this.secret);
+		}
+	}
+	
+	monitor.eventcb = function(msgs) {
+		var x;
+		if (loggedon) {
+			if(!astmanEngine.ev_monitor) {
+				for (i=1;i<msgs.length - 1;i++) {
+					astmanEngine.channelUpdate(msgs[i]);
+				}
+				$('channellist').innerHTML = astmanEngine.channelTable(monitor.channelCallback);
+			}
+			else {
+				for (i=1;i<msgs.length - 1;i++) {
+					$('eventslist').innerHTML+=astmanEngine.formatEvent(msgs[i]);
+					//astmanEngine.formatEvent(msgs[i]);
+				}
+			}
+			astmanEngine.pollEvents();
+		}
+		
+	}
+	monitor.open = function() {
+		astmanEngine.sendRequest('action=ping', monitor.pongs);
+	
+	}
+	monitor.close = function() {
+		doLogoff();
+	
+	}
+	function doChannelMonitor() {
+		if(astmanEngine.ev_monitor==0) return;
+		$('event-monitor-tbl1').style.display='none';
+		$('event-monitor-tbl2').style.display='none';
+		$('event-monitor-tbl3').style.display='none';
+		$('chan-monitor-tbl1').style.display='';
+		$('chan-monitor-tbl2').style.display='';
+		$('chan-monitor-tbl3').style.display='';
+		$('button-chan').className="button-on";
+		$('button-event').className="button-off";
+		astmanEngine.ev_monitor=0;
+		doStatus();
+	}
+	function doEventMonitor() {
+		if(astmanEngine.ev_monitor==1) return;
+		$('chan-monitor-tbl1').style.display='none';
+		$('chan-monitor-tbl2').style.display='none';
+		$('chan-monitor-tbl3').style.display='none';
+		$('event-monitor-tbl1').style.display='';
+		$('event-monitor-tbl2').style.display='';
+		$('event-monitor-tbl3').style.display='';
+		$('button-event').className="button-on";
+		$('button-chan').className="button-off";
+		astmanEngine.ev_monitor=1;
+		
+	}
+	function clearEventsScreen(){
+		$('eventslist').innerHTML='';
+	}
+	function localajaminit() {
+		var s=location.href;
+		s=s.split('?');
+		var a=s[1].toQueryParams();
+		username=a['username'];
+		secret=a['secret'];
+		//astmanEngine.ev_monitor=1;
+		astmanEngine.setURL('../../rawman');
+		astmanEngine.setEventCallback(monitor.eventcb);
+		clearChannelList();
+		astmanEngine.sendRequest('action=ping', monitor.pongs);
+		
+	}
+	
+</script>
+<div align="right" style="width: 100%; margin: 0;">
+<table border=0 cellspacing=0 cellpadding=0>
+<tr><td id="button-chan" class="button-on"><a href="javascript:doChannelMonitor()">Channels Monitor</a></td>
+<td width="3">&nbsp;</td>
+<td id="button-event" class="button-off"><a href="javascript:doEventMonitor()">Events Monitor</a></td>
+</tr>
+</table>
+</div>
+<table align="center" width="100%" border=0 cellpadding=0 cellspacing=0 class="main-tbl">
+<tr >
+<td id="chan-monitor-tbl1" >
+  <table cellpadding="2" border=0 >
+  <tr>
+	<td width="20"><a href="javascript:doStatus()" title="Refresh">
+	<img src="images/refresh.gif" id="refresh" />
+	</a></td>
+	<td width="20"><a href="javascript:doTransfer()" title="Transfer">
+	<img src="images/dial.gif" id="transfer" />
+	</a></td>
+	<td width="20"><a href="javascript:doHangup()" title="Hangup">
+	<img src="images/drop.gif" id="hangup" />
+	</a></td>
+  </tr>
+  </table>  
+</td>
+<td id="event-monitor-tbl1" style="display: none;">
+  <table cellpadding="2" border=0 >
+  <tr><td width="20"><a href="javascript:clearEventsScreen()" title="Clear screen">
+	<img src="images/drop.gif" />
+	</a></td>
+  </tr>
+  </table>  
+</td>
+<td align="right">
+	<div id="statusbar">
+	</div>
+</td>
+  
+</td></tr>
+<tr>
+<td colspan=2 id="chan-monitor-tbl2" class="filter-tbl">
+	<table border=0 width='100%' >
+	<tr >
+	<td width="15%">Channel</td>
+	<td><input type='text' onkeyup='doFiltersChannels()' name='f_chan' id='f_chan' size='15'></td>
+	<td >State</td>
+	<td><input type='text' onkeyup='doFiltersChannels()' name='f_state' id='f_state' size='15'></td>
+	<td >CallerID</td>
+	<td><input type='text' onkeyup='doFiltersChannels()' name='f_callerid' id='f_callerid' size='15'></td>
+	</tr>
+	</table>
+</td>
+<td colspan=2 id="event-monitor-tbl2" class="filter-tbl" style="display: none;">
+    <table border=0 width='100%'>
+	<tr >
+	<td width="15%">Event</td>
+	<td><input type='text' onkeyup='doFiltersEvents()' name='e_event' id='e_event' size='20'></td>
+	<td width="15%">
+	<select id="e_userfield_name" onchange='doFiltersEvents()'>
+		<option value="channel">Channel</option>
+		<option value="callerid">CallerID</option>
+		<option value="source">Source</option>
+		<option value="destination">Destination</option>
+		<option value="application">Application</option>
+		<option value="variable">Variable</option>
+	</select>
+	</td>
+	<td ><input type='text' onkeyup='doFiltersEvents()' name='e_userfield' id='e_userfield' size='20'></td>
+	<td width="15%">Output</td>
+	<td >
+	<select id="e_output" onchange='doChangeEventFormat(this.value)'>
+		<option value="format">Format</option>
+		<option value="raw">Raw</option>
+	</select>
+	</td>
+	
+	</tr>
+	</table>
+</td>
+</tr>
+<tr><td colspan=2 id="chan-monitor-tbl3" >
+<div style="height: 400px; overflow: auto;" valign="top" id="channellist" class="chanlist">
+</div>
+</td>
+<td colspan=2 id="event-monitor-tbl3" style="display: none;">
+<div id="eventslist" class="chanlist" style="width: 100%; height: 400px; overflow: auto;">
+&nbsp;
+</div>
+</tr>
+</table>
+</body>
+</html>
